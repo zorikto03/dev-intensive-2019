@@ -10,6 +10,6 @@ class ImageMessage(id : String,
                    date: Date = Date(),
                    val image: String?
 ) : BaseMessage(id,from,chat,isIncoming, date) {
-    override fun FormatMessage(): String = "${from?.firstName}" +
+    override fun formatMessage(): String = "${from?.firstName}" +
             " ${if (isIncoming) "получил" else "отправил"} изображение \"$image\" ${Date.humanizeDiff()}"
 }
