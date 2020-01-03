@@ -1,12 +1,6 @@
 package ru.skillbranch.devintensive.extensions
 
-import ru.skillbranch.devintensive.models.User
-import java.lang.IllegalStateException
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
-import java.time.temporal.ChronoUnit
 import java.util.*
 
 const val SECONDS = 1000L
@@ -19,14 +13,14 @@ fun Date.format(pattern:String = "HH:mm:ss, dd.MM.yy"): String{
     return dateFormat.format(this)
 }
 
-fun Date.add(value: Int, units: Timeunits = Timeunits.SECOND): Date{
+fun Date.add(value: Int, units: TimeUnits = TimeUnits.SECOND): Date{
     var time = this.time
 
     time += when(units){
-        Timeunits.SECOND -> value * SECONDS
-        Timeunits.MINUTE -> value * MINUTE
-        Timeunits.HOUR -> value * HOUR
-        Timeunits.DAY -> value * DAY
+        TimeUnits.SECOND -> value * SECONDS
+        TimeUnits.MINUTE -> value * MINUTE
+        TimeUnits.HOUR -> value * HOUR
+        TimeUnits.DAY -> value * DAY
     }
     this.time = time
 
@@ -113,7 +107,7 @@ fun Date.humanizeDiff(date: Date = Date()): String{
     return result
 }
 
-enum class Timeunits{
+enum class TimeUnits{
     SECOND,
     MINUTE,
     HOUR,
