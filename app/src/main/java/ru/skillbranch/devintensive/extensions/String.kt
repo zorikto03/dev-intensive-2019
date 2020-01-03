@@ -4,7 +4,7 @@ package ru.skillbranch.devintensive.extensions
 fun String.truncate(length: Int = 16): String {
     val len = this.length
     when (len > length){
-        true -> return this.substring(0, length)
+        true -> return this.substring(0, length) + "..."
         else -> return this
     }
 }

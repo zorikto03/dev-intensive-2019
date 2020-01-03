@@ -7,8 +7,11 @@ object Utils {
         val parts: List<String>? = fullName?.split(" ")
         val firstName = parts?.getOrNull(0)
         val lastName = parts?.getOrNull(1)
-        return Pair(firstName, lastName)
-        //return firstName to lastName
+        if (firstName == lastName && (firstName == null || firstName == "")){
+            return null to null
+        }
+        //return Pair(firstName, lastName)
+        return firstName to lastName
     }
 
     fun transliteration(payload: String, devider: String = " "): String {
